@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZFXS Panel</title>
+
+<style>
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  color:white;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+  background:black;
+}
+
+/* Background image semi transparan */
+.bg{
+  position:fixed;
+  inset:0;
+  background:url('ramadhan.jpg') center/cover no-repeat;
+  opacity:0.25;
+  z-index:-1;
+}
+
+/* LOGIN */
+#loginBox{
+  background:#0b0b0b;
+  padding:40px;
+  border-radius:12px;
+  box-shadow:0 0 30px purple;
+  text-align:center;
+  width:300px;
+  z-index:1;
+}
+
+input, select{
+  width:100%;
+  padding:12px;
+  margin-top:10px;
+  border:none;
+  border-radius:6px;
+  background:#111;
+  color:white;
+}
+
+button{
+  margin-top:15px;
+  padding:12px;
+  width:100%;
+  border:none;
+  border-radius:6px;
+  background:linear-gradient(45deg, purple, red);
+  color:white;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.register{
+  margin-top:10px;
+  font-size:14px;
+  color:#aaa;
+  cursor:pointer;
+}
+
+.register:hover{
+  color:white;
+  text-decoration:underline;
+}
+
+/* PANEL */
+#panel{
+  display:none;
+  text-align:center;
+  width:500px;
+  z-index:1;
+}
+
+/* TITLE NEON */
+.title{
+  font-size:48px;
+  font-weight:bold;
+  background:linear-gradient(90deg, purple, red);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  text-shadow:
+  0 0 10px purple,
+  0 0 20px red,
+  0 0 30px purple;
+  margin-bottom:30px;
+}
+
+.card{
+  background:#0b0b0b;
+  padding:30px;
+  border-radius:12px;
+  box-shadow:0 0 25px rgba(128,0,128,0.6);
+}
+</style>
+</head>
+
+<body>
+
+<div class="bg"></div>
+
+<!-- Musik background -->
+<audio id="bgMusic" loop>
+  <source src="lagu.mp3" type="audio/mpeg">
+  Browser kamu tidak mendukung audio.
+</audio>
+
+<!-- LOGIN -->
+<div id="loginBox">
+<h2>ZFXS Login</h2>
+
+<input id="user" placeholder="User">
+<input id="key" placeholder="Password" type="password">
+
+<div class="register" onclick="openWA()">daftar? click ini</div>
+
+<button onclick="login()">Login</button>
+</div>
+
+<!-- PANEL -->
+<div id="panel">
+<div class="title">😈🔥-𝐙𝐅𝐗𝐒-🔥😈</div>
+
+<div class="card">
+<input id="number" placeholder="Type you number +60XXXXXXXXX">
+
+<select>
+<option>BAN😈</option>
+</select>
+
+<button onclick="execute()">Execute</button>
+</div>
+</div>
+
+<script>
+function openWA(){
+  window.open("https://wa.me/601121839440","_blank");
+}
+
+function login(){
+  let user=document.getElementById("user").value;
+  let key=document.getElementById("key").value;
+
+  if(user==="Ninz" && key==="Ninzcihuy"){
+    document.getElementById("loginBox").style.display="none";
+    document.getElementById("panel").style.display="block";
+    document.getElementById("bgMusic").play(); // musik mulai setelah login
+  } else {
+    alert("Login gagal");
+  }
+}
+
+function execute(){
+  let num=document.getElementById("number").value;
+
+  let message = `My WhatsApp account has been stolen/hacked.
+Please deactivate my account temporarily.
+
+Phone number: ${num}`;
+
+  let mail = `mailto:support@support.whatsapp.com?subject=WhatsApp Account Hacked&body=${encodeURIComponent(message)}`;
+
+  window.location.href = mail;
+}
+</script>
+
+</body>
+</html>
